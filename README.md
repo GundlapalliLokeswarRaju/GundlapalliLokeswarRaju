@@ -49,6 +49,10 @@
 <!-- Auto-updated by the "Update stats" workflow: your newest public repos appear here. Do not edit between the markers. -->
 
 <!--START_PROJECTS-->
+- [**YOUR-PROJECT-1**](https://github.com/GundlapalliLokeswarRaju/YOUR-REPO-1) - End-to-end ETL pipeline that ingests, cleans and loads data into a warehouse.
+- [**YOUR-PROJECT-2**](https://github.com/GundlapalliLokeswarRaju/YOUR-REPO-2) - Machine learning model for prediction or classification on real-world data.
+- [**YOUR-PROJECT-3**](https://github.com/GundlapalliLokeswarRaju/YOUR-REPO-3) - Cloud-based data processing and analytics workflow.
+- [**YOUR-PROJECT-4**](https://github.com/GundlapalliLokeswarRaju/YOUR-REPO-4) - Dashboard and reporting project that turns data into insights.
 <!--END_PROJECTS-->
 
 <div align="center">
