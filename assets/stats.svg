@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-label="GitHub stats">
+<title>GitHub stats</title>
+<defs>
+<pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#000" opacity=".30"/></pattern>
+<filter id="glow" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#39ff7a" stop-opacity="0"/><stop offset=".5" stop-color="#39ff7a"/><stop offset="1" stop-color="#39ff7a" stop-opacity="0"/></linearGradient>
+<clipPath id="clip"><rect x="1" y="1" width="1198" height="378" rx="12"/></clipPath>
+
+</defs>
+<style>
+text{font-family:'JetBrains Mono','Fira Code','SFMono-Regular',Consolas,'Courier New',monospace}
+.g{fill:#39ff7a} .t{fill:#c9d1d9} .m{fill:#6e7f8d} .b{font-weight:700}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.cur{animation:blink 1s steps(1) infinite}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+
+</style>
+<rect x="1" y="1" width="1198" height="378" rx="12" fill="#0d1117" stroke="#1f6f43" stroke-width="2"/>
+<path d="M1 13a12 12 0 0 1 12-12h1174a12 12 0 0 1 12 12v30H1z" fill="#111a22"/>
+<circle cx="26" cy="22" r="6" fill="#ff5f56"/><circle cx="48" cy="22" r="6" fill="#ffbd2e"/><circle cx="70" cy="22" r="6" fill="#39ff7a"/>
+<text x="600" y="27" text-anchor="middle" class="m" font-size="13">github --stats --all</text><rect x="40" y="90" width="176" height="108" rx="8" fill="#111a22" stroke="#1f6f43" stroke-width="1.2"/><text x="128" y="146" text-anchor="middle" font-size="36" class="g b" filter="url(#glow)">0</text><text x="128" y="178" text-anchor="middle" font-size="12" class="m">total commits</text><rect x="230" y="90" width="176" height="108" rx="8" fill="#111a22" stroke="#1f6f43" stroke-width="1.2"/><text x="318" y="146" text-anchor="middle" font-size="36" class="g b" filter="url(#glow)">0</text><text x="318" y="178" text-anchor="middle" font-size="12" class="m">pull requests</text><rect x="420" y="90" width="176" height="108" rx="8" fill="#111a22" stroke="#1f6f43" stroke-width="1.2"/><text x="508" y="146" text-anchor="middle" font-size="36" class="g b" filter="url(#glow)">0</text><text x="508" y="178" text-anchor="middle" font-size="12" class="m">issues</text><rect x="610" y="90" width="176" height="108" rx="8" fill="#111a22" stroke="#1f6f43" stroke-width="1.2"/><text x="698" y="146" text-anchor="middle" font-size="36" class="g b" filter="url(#glow)">0</text><text x="698" y="178" text-anchor="middle" font-size="12" class="m">stars earned</text><rect x="40" y="220" width="176" height="108" rx="8" fill="#111a22" stroke="#1f6f43" stroke-width="1.2"/><text x="128" y="276" text-anchor="middle" font-size="36" class="g b" filter="url(#glow)">0</text><text x="128" y="308" text-anchor="middle" font-size="12" class="m">repositories</text><rect x="230" y="220" width="176" height="108" rx="8" fill="#111a22" stroke="#1f6f43" stroke-width="1.2"/><text x="318" y="276" text-anchor="middle" font-size="36" class="g b" filter="url(#glow)">0</text><text x="318" y="308" text-anchor="middle" font-size="12" class="m">followers</text><rect x="420" y="220" width="176" height="108" rx="8" fill="#111a22" stroke="#1f6f43" stroke-width="1.2"/><text x="508" y="276" text-anchor="middle" font-size="36" class="g b" filter="url(#glow)">0</text><text x="508" y="308" text-anchor="middle" font-size="12" class="m">current streak (days)</text><rect x="610" y="220" width="176" height="108" rx="8" fill="#111a22" stroke="#1f6f43" stroke-width="1.2"/><text x="698" y="276" text-anchor="middle" font-size="36" class="g b" filter="url(#glow)">0</text><text x="698" y="308" text-anchor="middle" font-size="12" class="m">longest streak (days)</text><text x="830" y="96" font-size="17" class="g b">top languages</text><rect x="830" y="106" width="330" height="1.5" fill="#1f6f43"/><text x="830" y="146" font-size="14" class="m">no data yet - run the</text><text x="830" y="168" font-size="14" class="m">"Update stats" workflow</text><text x="40" y="362" font-size="12" class="m">contributions in the last year: 0   |   updated: pending first run</text><rect x="1" y="1" width="1198" height="378" rx="12" fill="url(#scan)" pointer-events="none"/>
+</svg>
