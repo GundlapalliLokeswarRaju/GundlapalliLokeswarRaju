@@ -52,6 +52,12 @@
 
 <!-- AUTO-UPDATED: your newest public repos appear here every few hours. Do not edit between the markers. -->
 <!--START_PROJECTS-->
+- [**cicd_in_adf**](https://github.com/GundlapalliLokeswarRaju/cicd_in_adf) - No description yet.
+- [**cicd**](https://github.com/GundlapalliLokeswarRaju/cicd) - No description yet.
+- [**Phonics**](https://github.com/GundlapalliLokeswarRaju/Phonics) - No description yet.
+- [**AI-resume-match**](https://github.com/GundlapalliLokeswarRaju/AI-resume-match) - No description yet.
+- [**chat_bot**](https://github.com/GundlapalliLokeswarRaju/chat_bot) - No description yet.
+- [**finance-dashboard**](https://github.com/GundlapalliLokeswarRaju/finance-dashboard) - No description yet.
 <!--END_PROJECTS-->
 
 <!-- 🎬 DEMO GIFs — record 10–15s clips (ScreenToGif / Kap), save to assets/demos/, then uncomment:
