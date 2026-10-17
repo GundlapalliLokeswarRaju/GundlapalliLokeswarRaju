@@ -46,12 +46,10 @@
 
 </div>
 
-<!-- Replace these with your real repos, then update profile.config.json to match -->
+<!-- Auto-updated by the "Update stats" workflow: your newest public repos appear here. Do not edit between the markers. -->
 
-| | |
-| :-- | :-- |
-| [**YOUR-PROJECT-1**](https://github.com/GundlapalliLokeswarRaju/YOUR-REPO-1) | [**YOUR-PROJECT-2**](https://github.com/GundlapalliLokeswarRaju/YOUR-REPO-2) |
-| [**YOUR-PROJECT-3**](https://github.com/GundlapalliLokeswarRaju/YOUR-REPO-3) | [**YOUR-PROJECT-4**](https://github.com/GundlapalliLokeswarRaju/YOUR-REPO-4) |
+<!--START_PROJECTS-->
+<!--END_PROJECTS-->
 
 <div align="center">
 
