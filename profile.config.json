@@ -1,0 +1,89 @@
+{
+  "name": "Gundlapalli Lokeswar Raju",
+  "username": "GundlapalliLokeswarRaju",
+  "roles": ["Data Engineer", "AI Enthusiast", "Cloud Explorer"],
+  "typing": [
+    "Building scalable data pipelines",
+    "Turning data into intelligent systems",
+    "Exploring the cloud, one service at a time",
+    "Always learning. Always shipping."
+  ],
+  "terminal": [
+    {
+      "cmd": "whoami",
+      "out": [
+        "Lokeswar Raju: Data Engineer who turns raw data into reliable, intelligent products"
+      ]
+    },
+    {
+      "cmd": "cat interests.txt",
+      "out": [
+        "[AI]     machine learning, LLMs and applied AI",
+        "[CLOUD]  Azure-first, built for scale and reliability",
+        "[DATA]   pipelines, warehousing, clean and trusted data"
+      ]
+    },
+    {
+      "cmd": "cat status.txt",
+      "out": [
+        "building   -> data pipelines + AI/ML workflows on the cloud",
+        "learning   -> Azure data services, advanced SQL, MLOps",
+        "open to    -> internships, collaborations, full-time Data / AI roles"
+      ]
+    }
+  ],
+  "interests": [
+    {
+      "badge": "AI",
+      "title": "Artificial Intelligence",
+      "lines": ["Machine learning models,", "LLM apps and applied AI", "that solve real problems."]
+    },
+    {
+      "badge": "AZ",
+      "title": "Cloud Computing",
+      "lines": ["Azure-first architecture,", "storage, compute and", "services built to scale."]
+    },
+    {
+      "badge": "DE",
+      "title": "Data Engineering",
+      "lines": ["ETL / ELT pipelines,", "warehousing and data", "quality you can trust."]
+    }
+  ],
+  "stack": [
+    {"label": "languages", "items": ["Python", "SQL"]},
+    {"label": "cloud", "items": ["Azure", "Azure Data Factory", "Azure Storage"]},
+    {"label": "data", "items": ["Pandas", "NumPy", "Spark", "Databricks"]},
+    {"label": "ml / ai", "items": ["Machine Learning", "scikit-learn", "LLMs"]},
+    {"label": "tools", "items": ["Git", "GitHub Actions", "Docker", "Jupyter", "Power BI"]}
+  ],
+  "projects": [
+    {
+      "title": "YOUR-PROJECT-1",
+      "repo": "YOUR-REPO-1",
+      "desc": "End-to-end ETL pipeline that ingests, cleans and loads data into a warehouse.",
+      "tags": ["Python", "SQL", "Azure"]
+    },
+    {
+      "title": "YOUR-PROJECT-2",
+      "repo": "YOUR-REPO-2",
+      "desc": "Machine learning model for prediction or classification on real-world data.",
+      "tags": ["Python", "scikit-learn"]
+    },
+    {
+      "title": "YOUR-PROJECT-3",
+      "repo": "YOUR-REPO-3",
+      "desc": "Cloud-based data processing and analytics workflow.",
+      "tags": ["Azure", "SQL", "Git"]
+    },
+    {
+      "title": "YOUR-PROJECT-4",
+      "repo": "YOUR-REPO-4",
+      "desc": "Dashboard and reporting project that turns data into insights.",
+      "tags": ["Python", "Power BI"]
+    }
+  ],
+  "footer": {
+    "headline": "Let's build something intelligent",
+    "sub": "data  .  ai  .  cloud"
+  }
+}

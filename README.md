@@ -104,7 +104,7 @@ _Recent GitHub activity will appear here after the "Update Recent Activity" work
 
 ![Let's talk](assets/section-contact.svg)
 
-[![Let's build something intelligent - get in touch](assets/footer.svg)](mailto:glokesh8374@gmail.com)
+[![Let's build something intelligent - get in touch](assets/footer.svg)](mailto:YOUR-EMAIL@example.com)
 
 [![Profile views](https://komarev.com/ghpvc/?username=GundlapalliLokeswarRaju&label=Profile%20views&color=39ff7a&style=for-the-badge&labelColor=0d1117)](https://github.com/GundlapalliLokeswarRaju)
 
