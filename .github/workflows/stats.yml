@@ -1,0 +1,37 @@
+name: Update stats
+
+on:
+  schedule:
+    - cron: "0 2 * * *"   # daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch totals
+        env:
+          # Add a repo secret named PROFILE_TOKEN (classic PAT with read:user + repo)
+          # to include private and organisation work. Falls back to public-only data.
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
+        run: python scripts/fetch_stats.py
+
+      - name: Rebuild SVG cards
+        run: python scripts/build_assets.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats.json assets
+          git diff --cached --quiet || git commit -m "chore: refresh stats and cards"
+          git push
