@@ -155,7 +155,10 @@
 </p>
 
 <!-- GUESTBOOK:START -->
-<p align="center"><sub>No signatures yet. Be the first!</sub></p>
+<p align="center">
+  <a href="https://github.com/GundlapalliLokeswarRaju"><img src="https://github.com/GundlapalliLokeswarRaju.png?size=88" width="44" height="44" alt="GundlapalliLokeswarRaju" title="GundlapalliLokeswarRaju"/></a>
+</p>
+<p align="center"><sub>1 person has signed · newest first</sub></p>
 <!-- GUESTBOOK:END -->
 
 <img src="assets/section-contact.svg" width="100%" alt="Let's talk"/>
