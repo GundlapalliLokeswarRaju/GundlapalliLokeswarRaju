@@ -57,8 +57,16 @@
 <!--START_PROJECTS-->
 <table>
 <tr>
-<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju?tab=repositories"><img src="assets/project-your-project-1.svg" width="100%" alt="YOUR-PROJECT-1 — Placeholder. Upload a repo and it replaces this card automatically on the next rebuild (wi"/></a></td>
-<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju?tab=repositories"><img src="assets/project-your-project-2.svg" width="100%" alt="YOUR-PROJECT-2 — Placeholder. Give each repo a one-line description and a few topics on GitHub, and they sh"/></a></td>
+<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju/cicd_in_adf"><img src="assets/project-cicd-in-adf.svg" width="100%" alt="cicd_in_adf — No description yet — add one on GitHub and it shows up here."/></a></td>
+<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju/cicd"><img src="assets/project-cicd.svg" width="100%" alt="cicd — No description yet — add one on GitHub and it shows up here."/></a></td>
+</tr>
+<tr>
+<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju/Phonics"><img src="assets/project-phonics.svg" width="100%" alt="Phonics — No description yet — add one on GitHub and it shows up here."/></a></td>
+<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju/AI-resume-match"><img src="assets/project-ai-resume-match.svg" width="100%" alt="AI-resume-match — No description yet — add one on GitHub and it shows up here."/></a></td>
+</tr>
+<tr>
+<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju/chat_bot"><img src="assets/project-chat-bot.svg" width="100%" alt="chat_bot — No description yet — add one on GitHub and it shows up here."/></a></td>
+<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju/finance-dashboard"><img src="assets/project-finance-dashboard.svg" width="100%" alt="finance-dashboard — No description yet — add one on GitHub and it shows up here."/></a></td>
 </tr>
 </table>
 <!--END_PROJECTS-->
