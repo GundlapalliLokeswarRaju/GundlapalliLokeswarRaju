@@ -1,0 +1,46 @@
+name: Rebuild profile visuals
+
+# Every 3 hours (and whenever you edit profile.config.json or scripts/):
+#   1. refreshes stats.json + your newest public repos (new repos appear in "Featured work" automatically)
+#   2. regenerates every SVG in /assets and the project grid in README.md
+# Optional: add a METRICS_TOKEN secret (see SETUP.md) to include private & org work in the stats.
+on:
+  schedule:
+    - cron: "45 */3 * * *"
+  push:
+    branches: [main]
+    paths: ["profile.config.json", "scripts/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: readme-writer
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install fonttools==4.60.1 brotli==1.1.0 pyfiglet==1.0.2
+      - name: Fetch stats and newest public repos
+        continue-on-error: true   # if GitHub's API hiccups, still rebuild from the last stats.json
+        env:
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
+          STATS_SCOPE: ${{ secrets.METRICS_TOKEN && 'all' || 'public' }}
+        run: python scripts/fetch_stats.py
+      - run: python scripts/build_assets.py
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets stats.json README.md profile-3d-contrib
+          git diff --staged --quiet || git commit -m "chore: rebuild profile visuals"
+          for i in 1 2 3; do git pull --rebase -q && git push && exit 0; sleep 5; done
+          exit 1
