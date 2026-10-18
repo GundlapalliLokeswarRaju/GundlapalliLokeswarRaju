@@ -2,13 +2,13 @@
  "updated": "2026-10-18",
  "scope": "public",
  "since": 2023,
- "year_contributions": 256,
- "contributions": 412,
+ "year_contributions": 258,
+ "contributions": 414,
  "commits": 374,
  "prs": 12,
  "prs_merged": 11,
  "reviews": 0,
- "issues": 0,
+ "issues": 2,
  "repos": 35,
  "private_repos": 0,
  "stars": 0,
@@ -600,7 +600,7 @@
   0,
   0,
   18,
-  5
+  7
  ],
  "calendar_start": "2025-10-19"
 }
