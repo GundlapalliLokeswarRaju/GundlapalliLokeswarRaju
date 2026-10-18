@@ -1,89 +1,153 @@
 {
-  "name": "Gundlapalli Lokeswar Raju",
   "username": "GundlapalliLokeswarRaju",
-  "roles": ["Data Engineer", "AI Enthusiast", "Cloud Explorer"],
-  "typing": [
+  "name": "Gundlapalli Lokeswar Raju",
+  "ascii_lines": ["Gundlapalli", "Lokeswar", "Raju"],
+  "logo": "GLR",
+  "title": "Data Engineer",
+  "tagline": "Data Engineer | AI Enthusiast | Cloud Explorer",
+  "panel": {
+    "status": "● ONLINE · open to work",
+    "mode": "full-time · internships · collabs"
+  },
+  "meters": [["DATA", 85], ["AI/ML", 70], ["CLOUD", 75], ["SQL", 80]],
+  "roles": [
     "Building scalable data pipelines",
     "Turning data into intelligent systems",
     "Exploring the cloud, one service at a time",
     "Always learning. Always shipping."
   ],
+  "boot": [
+    "Mounting /dev/datalake",
+    "Loading etl_pipeline.ko",
+    "Starting azure-cloud.service",
+    "Attaching ml-toolkit",
+    "Linking sql ⇄ python",
+    "Indexing repositories"
+  ],
   "terminal": [
     {
       "cmd": "whoami",
       "out": [
-        "Lokeswar Raju: Data Engineer who turns raw data into reliable, intelligent products"
+        "Lokeswar Raju — Data Engineer. Pipelines, cloud and AI, from raw data to insight."
       ]
     },
     {
-      "cmd": "cat interests.txt",
+      "cmd": "cat stack.yaml",
       "out": [
-        "[AI]     machine learning, LLMs and applied AI",
-        "[CLOUD]  Azure-first, built for scale and reliability",
-        "[DATA]   pipelines, warehousing, clean and trusted data"
+        "core:      Python · SQL · Azure · Git · Machine Learning",
+        "data:      ETL / ELT pipelines · warehousing · data quality",
+        "cloud:     Azure data services · storage · compute",
+        "ai:        machine learning · LLMs · applied AI"
       ]
     },
     {
-      "cmd": "cat status.txt",
+      "cmd": "cat learning.txt",
       "out": [
-        "building   -> data pipelines + AI/ML workflows on the cloud",
-        "learning   -> Azure data services, advanced SQL, MLOps",
-        "open to    -> internships, collaborations, full-time Data / AI roles"
+        "⎇ now learning — Azure data services · advanced SQL · MLOps"
+      ]
+    },
+    {
+      "cmd": "status",
+      "out": [
+        "● open to internships, collaborations and full-time Data / AI roles"
       ]
     }
   ],
-  "interests": [
+  "services": [
     {
-      "badge": "AI",
-      "title": "Artificial Intelligence",
-      "lines": ["Machine learning models,", "LLM apps and applied AI", "that solve real problems."]
-    },
-    {
-      "badge": "AZ",
-      "title": "Cloud Computing",
-      "lines": ["Azure-first architecture,", "storage, compute and", "services built to scale."]
-    },
-    {
-      "badge": "DE",
       "title": "Data Engineering",
-      "lines": ["ETL / ELT pipelines,", "warehousing and data", "quality you can trust."]
+      "icon": "data",
+      "points": [
+        "ETL / ELT pipelines, end to end",
+        "Warehousing and data modelling",
+        "Data quality and validation"
+      ]
+    },
+    {
+      "title": "Cloud Computing (Azure)",
+      "icon": "cloud",
+      "points": [
+        "Azure-first architecture",
+        "Storage, compute and data services",
+        "Built to scale and stay reliable"
+      ]
+    },
+    {
+      "title": "AI & Machine Learning",
+      "icon": "ai",
+      "points": [
+        "Model training and evaluation",
+        "Feature engineering on real data",
+        "LLM apps and applied AI"
+      ]
+    },
+    {
+      "title": "SQL & Analytics",
+      "icon": "sql",
+      "points": [
+        "Advanced queries and tuning",
+        "Reporting-ready datasets",
+        "Dashboards that tell the story"
+      ]
+    },
+    {
+      "title": "Python & Automation",
+      "icon": "python",
+      "points": [
+        "Scripts and workflow automation",
+        "APIs and data ingestion",
+        "Clean, tested, reusable code"
+      ]
+    },
+    {
+      "title": "Version Control & CI/CD",
+      "icon": "git",
+      "points": [
+        "Version control done right",
+        "GitHub Actions for pipelines",
+        "Reproducible, reviewed changes"
+      ]
     }
   ],
-  "stack": [
-    {"label": "languages", "items": ["Python", "SQL"]},
-    {"label": "cloud", "items": ["Azure", "Azure Data Factory", "Azure Storage"]},
-    {"label": "data", "items": ["Pandas", "NumPy", "Spark", "Databricks"]},
-    {"label": "ml / ai", "items": ["Machine Learning", "scikit-learn", "LLMs"]},
-    {"label": "tools", "items": ["Git", "GitHub Actions", "Docker", "Jupyter", "Power BI"]}
-  ],
-  "projects": [
+  "auto_projects": true,
+  "projects_count": 6,
+  "exclude_repos": [],
+  "projects": [],
+  "placeholder_projects": [
     {
+      "slug": "your-project-1",
+      "label": "Data engineering",
       "title": "YOUR-PROJECT-1",
-      "repo": "YOUR-REPO-1",
-      "desc": "End-to-end ETL pipeline that ingests, cleans and loads data into a warehouse.",
-      "tags": ["Python", "SQL", "Azure"]
+      "role": "Author — end-to-end pipeline",
+      "desc": "Placeholder. Upload a repo and it replaces this card automatically on the next rebuild (within 3 hours), or run the Rebuild workflow.",
+      "tags": ["Python", "SQL", "Azure"],
+      "metric": "soon",
+      "url": "https://github.com/GundlapalliLokeswarRaju?tab=repositories"
     },
     {
+      "slug": "your-project-2",
+      "label": "Machine learning",
       "title": "YOUR-PROJECT-2",
-      "repo": "YOUR-REPO-2",
-      "desc": "Machine learning model for prediction or classification on real-world data.",
-      "tags": ["Python", "scikit-learn"]
-    },
-    {
-      "title": "YOUR-PROJECT-3",
-      "repo": "YOUR-REPO-3",
-      "desc": "Cloud-based data processing and analytics workflow.",
-      "tags": ["Azure", "SQL", "Git"]
-    },
-    {
-      "title": "YOUR-PROJECT-4",
-      "repo": "YOUR-REPO-4",
-      "desc": "Dashboard and reporting project that turns data into insights.",
-      "tags": ["Python", "Power BI"]
+      "role": "Author — notebooks and models",
+      "desc": "Placeholder. Give each repo a one-line description and a few topics on GitHub, and they show up here as the card text and tags.",
+      "tags": ["Python", "scikit-learn"],
+      "metric": "soon",
+      "url": "https://github.com/GundlapalliLokeswarRaju?tab=repositories"
     }
+  ],
+  "neofetch": [
+    ["OS", "lokeswar.os — Data × AI × Cloud"],
+    ["Host", "github.com/GundlapalliLokeswarRaju"],
+    ["Shell", "bash + Git + GitHub Actions"],
+    ["Core", "Python · SQL · Azure · Git · Machine Learning"],
+    ["Data", "Pandas · NumPy · Spark · Databricks"],
+    ["ML / AI", "scikit-learn · LLMs · Jupyter"],
+    ["Cloud", "Azure · Data Factory · Blob Storage"],
+    ["Tools", "Docker · Power BI · GitHub Actions"],
+    ["Focus", "ETL / ELT pipelines · data quality · MLOps"]
   ],
   "footer": {
-    "headline": "Let's build something intelligent",
-    "sub": "data  .  ai  .  cloud"
+    "headline": "LET'S BUILD SOMETHING INTELLIGENT",
+    "sub": "Got a data, AI or cloud idea? Let's build something together."
   }
 }

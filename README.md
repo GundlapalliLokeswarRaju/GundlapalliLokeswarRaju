@@ -2,7 +2,7 @@
      Profile README for github.com/GundlapalliLokeswarRaju
      Terminal-themed visuals in /assets are generated from profile.config.json + stats.json by
      scripts/build_assets.py (auto-runs via .github/workflows/build-assets.yml).
-     Replace every YOUR-… placeholder below with your real URL.
+     Replace every YOUR-… placeholder link below with your real URL.
 ════════════════════════════════════════════════════════════════════════ -->
 
 <p align="center">
@@ -13,14 +13,15 @@
   <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID"><img src="https://img.shields.io/badge/LinkedIn-0d1117?style=for-the-badge&logo=linkedin&logoColor=39ff7a" alt="LinkedIn"/></a>
   <a href="https://YOUR-PORTFOLIO-URL"><img src="https://img.shields.io/badge/Portfolio-0d1117?style=for-the-badge&logo=vercel&logoColor=39ff7a" alt="Portfolio"/></a>
   <a href="mailto:YOUR-EMAIL@example.com"><img src="https://img.shields.io/badge/Email-0d1117?style=for-the-badge&logo=gmail&logoColor=39ff7a" alt="Email"/></a>
-  <a href="https://YOUR-RESUME-LINK"><img src="https://img.shields.io/badge/R%C3%A9sum%C3%A9-0d1117?style=for-the-badge&logo=readdotcv&logoColor=39ff7a" alt="Résumé"/></a>
+  <a href="https://YOUR-RESUME-LINK"><img src="https://img.shields.io/badge/Résumé-0d1117?style=for-the-badge&logo=readdotcv&logoColor=39ff7a" alt="Résumé"/></a>
+  <a href="https://github.com/GundlapalliLokeswarRaju?tab=followers"><img src="https://img.shields.io/github/followers/GundlapalliLokeswarRaju?label=Followers&style=for-the-badge&logo=github&logoColor=0d1117&labelColor=39ff7a&color=0d1117" alt="Followers"/></a>
 </p>
 
 <img src="assets/divider.svg" width="100%" alt=""/>
 
 <img src="assets/section-about.svg" width="100%" alt="About"/>
 
-<img src="assets/terminal.svg" width="100%" alt="whoami: Data Engineer who turns raw data into reliable, intelligent products"/>
+<img src="assets/terminal.svg" width="100%" alt="whoami: Data Engineer building pipelines, cloud and AI"/>
 
 <table>
 <tr>
@@ -29,15 +30,16 @@
 <ul>
 <li><b>Data Engineer</b> — pipelines, warehousing and AI-ready datasets</li>
 <li>Stack: <b>Python · SQL · Azure · Git · Machine Learning</b></li>
-<li>Interests: <b>AI</b>, <b>Cloud Computing</b> and <b>Data Engineering</b></li>
+<li>Learning in public: <b>Azure data services, advanced SQL, MLOps</b></li>
 <li>Open to <b>internships and full-time Data / AI / Cloud roles</b> · remote or hybrid</li>
 </ul>
 </td>
 <td width="50%" valign="top">
 <h3><code>$ cat collaborators.txt</code></h3>
 <ul>
-<li>Always up for <b>open-source</b>, <b>data projects</b> and <b>cloud + AI experiments</b></li>
-<li>I build things end to end: ingest, model, serve, monitor</li>
+<li>Always up for <b>data projects</b>, <b>open source</b> and <b>cloud + AI experiments</b></li>
+<li>Ask me about <b>Python, SQL, ETL/ELT, Azure and machine learning</b></li>
+<li>Good data engineering is invisible — when it works, nobody notices</li>
 <li>Got an idea? <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID"><b>Say hello on LinkedIn</b></a></li>
 </ul>
 </td>
@@ -46,21 +48,22 @@
 
 <img src="assets/section-services.svg" width="100%" alt="What I do"/>
 
-<img src="assets/services.svg" width="100%" alt="Data pipelines and ETL · Cloud data platforms · SQL and data modeling · Machine learning · Analytics and dashboards · Automation and DevOps"/>
+<img src="assets/services.svg" width="100%" alt="Data engineering · Cloud computing (Azure) · AI & machine learning · SQL & analytics · Python & automation · Git & CI/CD for data"/>
 
 <img src="assets/section-projects.svg" width="100%" alt="Featured work"/>
 
-<!-- AUTO-UPDATED: your newest public repos appear here every few hours. Do not edit between the markers. -->
+<!-- Auto-filled by the "Rebuild profile visuals" workflow with your newest public repos (every 3 hours).
+     Do not edit between the markers; change projects_count / exclude_repos in profile.config.json instead. -->
 <!--START_PROJECTS-->
-- [**cicd_in_adf**](https://github.com/GundlapalliLokeswarRaju/cicd_in_adf) - No description yet.
-- [**cicd**](https://github.com/GundlapalliLokeswarRaju/cicd) - No description yet.
-- [**Phonics**](https://github.com/GundlapalliLokeswarRaju/Phonics) - No description yet.
-- [**AI-resume-match**](https://github.com/GundlapalliLokeswarRaju/AI-resume-match) - No description yet.
-- [**chat_bot**](https://github.com/GundlapalliLokeswarRaju/chat_bot) - No description yet.
-- [**finance-dashboard**](https://github.com/GundlapalliLokeswarRaju/finance-dashboard) - No description yet.
+<table>
+<tr>
+<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju?tab=repositories"><img src="assets/project-your-project-1.svg" width="100%" alt="YOUR-PROJECT-1 — Placeholder. Upload a repo and it replaces this card automatically on the next rebuild (wi"/></a></td>
+<td width="50%"><a href="https://github.com/GundlapalliLokeswarRaju?tab=repositories"><img src="assets/project-your-project-2.svg" width="100%" alt="YOUR-PROJECT-2 — Placeholder. Give each repo a one-line description and a few topics on GitHub, and they sh"/></a></td>
+</tr>
+</table>
 <!--END_PROJECTS-->
 
-<!-- 🎬 DEMO GIFs — record 10–15s clips (ScreenToGif / Kap), save to assets/demos/, then uncomment:
+<!-- 🎬 DEMO GIFs — record 10–15s clips (ScreenToGif / Kap / CleanShot), save to assets/demos/, then uncomment:
 <details>
 <summary><b>▶ Watch the demos</b></summary>
 <br/>
@@ -73,7 +76,7 @@
 
 <img src="assets/section-stack.svg" width="100%" alt="Tech stack"/>
 
-<img src="assets/stack.svg" width="100%" alt="Tech stack (neofetch): Python, SQL, Azure, Git, Machine Learning"/>
+<img src="assets/stack.svg" width="100%" alt="Tech stack (neofetch): Python, SQL, Azure, Git, Machine Learning · Pandas, NumPy, Spark, Databricks · scikit-learn, LLMs · Docker, Power BI, GitHub Actions"/>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=39ff7a" alt="Python"/>
@@ -90,7 +93,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/achievements.svg" width="100%" alt="Achievements, tiered unlocks computed from GitHub activity"/>
+  <img src="assets/achievements.svg" width="100%" alt="Achievements — tiered trophies computed from GitHub activity"/>
 </p>
 
 <details>
@@ -99,17 +102,8 @@
 <img src="assets/activity.svg" width="100%" alt="Weekly contributions over the last 12 months"/>
 </details>
 
-<details>
-<summary><b>🧩 Classic stat cards</b> <sub>— streak, languages and stats from public data, click to expand</sub></summary>
-<br/>
-<p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=GundlapalliLokeswarRaju&show_icons=true&hide_border=true&bg_color=0d1117&title_color=39ff7a&icon_color=39ff7a&text_color=c9d1d9" alt="GitHub stats"/>
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=GundlapalliLokeswarRaju&layout=compact&hide_border=true&bg_color=0d1117&title_color=39ff7a&text_color=c9d1d9" alt="Top languages"/>
-  <img src="https://streak-stats.demolab.com/?user=GundlapalliLokeswarRaju&hide_border=true&background=0d1117&stroke=39ff7a&ring=39ff7a&fire=39ff7a&currStreakNum=c9d1d9&sideNums=c9d1d9&currStreakLabel=39ff7a&sideLabels=c9d1d9&dates=8b949e" alt="GitHub streak"/>
-</p>
-</details>
 
-<!-- Generated daily by .github/workflows/profile-3d.yml (placeholder until the first run) -->
+<!-- Generated daily by .github/workflows/profile-3d.yml -->
 <p align="center">
   <img src="profile-3d-contrib/profile-night-green.svg" width="100%" alt="3D contribution graph"/>
 </p>
@@ -121,7 +115,7 @@
   <img src="https://raw.githubusercontent.com/GundlapalliLokeswarRaju/GundlapalliLokeswarRaju/output/snake-dark.svg" width="100%" alt="Contribution snake animation"/>
 </picture>
 
-<img src="assets/section-feed.svg" width="100%" alt="Latest writing and activity"/>
+<img src="assets/section-feed.svg" width="100%" alt="Latest writing & activity"/>
 
 <table>
 <tr>
@@ -163,6 +157,7 @@
 <p align="center">
   <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID"><img src="https://img.shields.io/badge/LinkedIn-Let's%20connect-0d1117?style=for-the-badge&logo=linkedin&logoColor=39ff7a" alt="LinkedIn"/></a>
   <a href="https://YOUR-PORTFOLIO-URL"><img src="https://img.shields.io/badge/Portfolio-View%20my%20work-0d1117?style=for-the-badge&logo=vercel&logoColor=39ff7a" alt="Portfolio"/></a>
+  <a href="mailto:YOUR-EMAIL@example.com"><img src="https://img.shields.io/badge/Email-Say%20hello-0d1117?style=for-the-badge&logo=gmail&logoColor=39ff7a" alt="Email"/></a>
 </p>
 
 <p align="center">
@@ -173,8 +168,9 @@
 <summary><sub>⚙️ How this profile works</sub></summary>
 <br/>
 
-- Every card is an SVG generated by [`scripts/build_assets.py`](scripts/build_assets.py) from [`profile.config.json`](profile.config.json), styled as a CRT terminal (JetBrains Mono embedded in each file, scanlines, Matrix rain).
-- [`scripts/fetch_stats.py`](scripts/fetch_stats.py) refreshes `stats.json` every few hours with **only totals**, no private repo names and no code. It also picks your newest public repos for **Featured work**.
+- Every card is an SVG generated by [`scripts/build_assets.py`](scripts/build_assets.py) from [`profile.config.json`](profile.config.json), styled as a CRT terminal (JetBrains Mono, scanlines, Matrix rain).
+- [`scripts/fetch_stats.py`](scripts/fetch_stats.py) runs every few hours and publishes **only totals, language percentages and your public repos** — no private repo names, no code.
+- Featured projects fill themselves from your newest public repositories.
 - The guestbook is issue-driven: opening a `guestbook|hi` issue triggers [a workflow](.github/workflows/guestbook.yml) that adds your avatar.
 - The snake, 3D graph and activity feed are refreshed by scheduled GitHub Actions.
 
