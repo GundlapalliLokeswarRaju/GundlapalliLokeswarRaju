@@ -3,8 +3,8 @@
   "name": "Gundlapalli Lokeswar Raju",
   "ascii_lines": ["Gundlapalli", "Lokeswar", "Raju"],
   "logo": "GLR",
-  "title": "Data Engineer",
-  "tagline": "Data Engineer | AI Enthusiast | Cloud Explorer",
+  "title": "Data & AI Engineer",
+  "tagline": "Data & AI Engineer | Cloud Explorer",
   "panel": {
     "status": "● ONLINE · open to work",
     "mode": "full-time · internships · collabs"
@@ -28,7 +28,7 @@
     {
       "cmd": "whoami",
       "out": [
-        "Lokeswar Raju — Data Engineer. Pipelines, cloud and AI, from raw data to insight."
+        "Lokeswar Raju — Data & AI Engineer. Pipelines, cloud and AI, from raw data to insight."
       ]
     },
     {

@@ -6,7 +6,7 @@
 ════════════════════════════════════════════════════════════════════════ -->
 
 <p align="center">
-  <img src="assets/header.svg" width="100%" alt="Gundlapalli Lokeswar Raju — Data Engineer | AI Enthusiast | Cloud Explorer"/>
+  <img src="assets/header.svg" width="100%" alt="Gundlapalli Lokeswar Raju — Data &amp; AI Engineer | Cloud Explorer"/>
 </p>
 
 <p align="center">
@@ -21,14 +21,14 @@
 
 <img src="assets/section-about.svg" width="100%" alt="About"/>
 
-<img src="assets/terminal.svg" width="100%" alt="whoami: Data Engineer building pipelines, cloud and AI"/>
+<img src="assets/terminal.svg" width="100%" alt="whoami: Data &amp; AI Engineer building pipelines, cloud and AI"/>
 
 <table>
 <tr>
 <td width="50%" valign="top">
 <h3><code>$ cat recruiters.txt</code></h3>
 <ul>
-<li><b>Data Engineer</b> — pipelines, warehousing and AI-ready datasets</li>
+<li><b>Data &amp; AI Engineer</b> — pipelines, warehousing, ML and AI-ready datasets</li>
 <li>Stack: <b>Python · SQL · Azure · Git · Machine Learning</b></li>
 <li>Learning in public: <b>Azure data services, advanced SQL, MLOps</b></li>
 <li>Open to <b>internships and full-time Data / AI / Cloud roles</b> · remote or hybrid</li>
