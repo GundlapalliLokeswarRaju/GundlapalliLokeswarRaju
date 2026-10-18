@@ -1,20 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="20" viewBox="0 0 1200 20" role="img" aria-label="divider">
-<title>divider</title>
-<defs>
-<pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#000" opacity=".30"/></pattern>
-<filter id="glow" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#39ff7a" stop-opacity="0"/><stop offset=".5" stop-color="#39ff7a"/><stop offset="1" stop-color="#39ff7a" stop-opacity="0"/></linearGradient>
-<clipPath id="clip"><rect x="1" y="1" width="1198" height="18" rx="12"/></clipPath>
-
-</defs>
-<style>
-text{font-family:'JetBrains Mono','Fira Code','SFMono-Regular',Consolas,'Courier New',monospace}
-.g{fill:#39ff7a} .t{fill:#c9d1d9} .m{fill:#6e7f8d} .b{font-weight:700}
-@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-.cur{animation:blink 1s steps(1) infinite}
-@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
-.pulse{animation:pulse 2.4s ease-in-out infinite}
-
-</style>
-<rect x="40" y="9" width="1120" height="2" fill="url(#fade)"/><rect x="595" y="5" width="10" height="10" fill="#39ff7a" transform="rotate(45 600 10)" class="pulse" filter="url(#glow)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="24" viewBox="0 0 1200 24" role="img" aria-label="divider"><title>divider</title><style>
+.t{font:400 14px 'JB',monospace;fill:#c8ffd4;white-space:pre} .b{font-family:'JBB','JB',monospace;font-weight:700}
+.g{fill:#39ff7a} .gh{fill:#b6ffc9} .gd{fill:#1f9e4a} .a{fill:#ffb347} .c{fill:#4df3ff} .r{fill:#ff5f56} .m{fill:#ff2a6d}
+.flicker{animation:flicker 7s infinite steps(1)}
+@keyframes flicker{0%,100%{opacity:1}41%{opacity:.93}42%{opacity:1}77%{opacity:.96}78%{opacity:1}}
+.blink{animation:blink 1s steps(1) infinite} @keyframes blink{50%{opacity:0}}
+@keyframes type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes show{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style><defs>
+<filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="bloom" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="2" fill="#000" opacity=".35"/></pattern>
+<radialGradient id="vignette" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/></radialGradient>
+<linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#39ff7a" stop-opacity="0"/><stop offset=".5" stop-color="#39ff7a" stop-opacity=".07"/><stop offset="1" stop-color="#39ff7a" stop-opacity="0"/></linearGradient>
+</defs><rect x="0" y="11.5" width="1200" height="1" fill="#0f3d1d"/><rect x="-200" y="11" width="200" height="2" fill="#39ff7a" filter="url(#glow)"><animate attributeName="x" values="-200;1200" dur="4s" repeatCount="indefinite"/></rect></svg>
