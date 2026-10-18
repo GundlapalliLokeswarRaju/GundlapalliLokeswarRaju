@@ -1,169 +1,151 @@
 #!/usr/bin/env python3
-"""Fetch GitHub totals for the profile owner and write stats.json.
+"""Fetches GitHub stats into stats.json (and lists your newest PUBLIC repos for the Featured Projects grid).
 
-Needs an env var GH_TOKEN (a personal access token with `read:user` and `repo`
-scopes gives private + organisation totals; the default GITHUB_TOKEN only sees
-public data). Only aggregate numbers are stored - no repo names, no code.
+Token: $GH_TOKEN (falls back to $METRICS_TOKEN).
+  - Inside GitHub Actions the built-in GITHUB_TOKEN works and sees public activity only.
+  - A classic personal access token for YOUR account (repo, read:org, read:user) also counts
+    private and organisation work — set it as the METRICS_TOKEN repo secret and the workflow uses it.
+Only aggregate numbers and public repo info are written: no private repo names, no code, no commit messages.
+
+Usage:  GH_TOKEN=... [STATS_SCOPE=all] python scripts/fetch_stats.py
 """
-import datetime as dt
-import json
-import os
-import pathlib
-import sys
-import urllib.request
+import datetime as dt, json, os, sys, urllib.request
+from collections import Counter
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-USER = json.loads((ROOT / "profile.config.json").read_text(encoding="utf-8"))["username"]
-TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
-
-QUERY = """
-query($login: String!) {
-  user(login: $login) {
-    followers { totalCount }
-    latest: repositories(privacy: PUBLIC, isFork: false, ownerAffiliations: OWNER, first: 20, orderBy: {field: CREATED_AT, direction: DESC}) {
-      nodes { ...R }
-    }
-    pinned: pinnedItems(first: 6, types: REPOSITORY) {
-      nodes { ... on Repository { ...R } }
-    }
-    pullRequests { totalCount }
-    issues { totalCount }
-    repositories(ownerAffiliations: OWNER, isFork: false, first: 100) {
-      totalCount
-      nodes {
-        stargazerCount
-        languages(first: 6, orderBy: {field: SIZE, direction: DESC}) {
-          edges { size node { name } }
-        }
-      }
-    }
-    contributionsCollection {
-      totalCommitContributions
-      restrictedContributionsCount
-      contributionCalendar {
-        totalContributions
-        weeks { contributionDays { date contributionCount } }
-      }
-    }
-  }
-}
-
-fragment R on Repository {
-  name
-  description
-  url
-  stargazerCount
-  isPrivate
-  primaryLanguage { name }
-  repositoryTopics(first: 3) { nodes { topic { name } } }
-}
-"""
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOGIN = json.load(open(os.path.join(ROOT, "profile.config.json"), encoding="utf-8"))["username"]
+TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("METRICS_TOKEN")
+SCOPE = "all" if os.environ.get("STATS_SCOPE") == "all" else "public"
+IGNORE = {"jupyter notebook", "html", "css", "scss", "powershell", "batchfile", "makefile", "dockerfile", "shell", "procfile"}
 
 
-def gql(query, variables):
+def gql(query, **variables):
     req = urllib.request.Request(
         "https://api.github.com/graphql",
-        data=json.dumps({"query": query, "variables": variables}).encode(),
-        headers={"Authorization": f"bearer {TOKEN}", "Content-Type": "application/json"},
+        data=json.dumps({"query": query, "variables": {"login": LOGIN, **variables}}).encode(),
+        headers={"Authorization": f"bearer {TOKEN}", "Content-Type": "application/json", "User-Agent": "profile-stats"},
     )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        payload = json.load(r)
-    if "errors" in payload:
-        raise RuntimeError(payload["errors"])
-    return payload["data"]
+    with urllib.request.urlopen(req, timeout=60) as r:
+        out = json.load(r)
+    if out.get("errors"):
+        sys.exit(f"GraphQL error: {out['errors']}")
+    return out["data"]["user"]
 
 
-def streaks(days):
-    days = sorted(days, key=lambda d: d["date"])
-    longest = cur = 0
-    for d in days:
-        cur = cur + 1 if d["contributionCount"] > 0 else 0
-        longest = max(longest, cur)
-    # current streak: count back from today (allow today to be empty)
-    current = 0
-    for d in reversed(days):
-        if d["contributionCount"] > 0:
-            current += 1
-        elif d["date"] == dt.date.today().isoformat():
-            continue
-        else:
-            break
-    return current, longest
+ME_Q = "query($login: String!) { user(login: $login) { createdAt pullRequests(states: MERGED) { totalCount } } }"
 
+YEAR_Q = """query($login: String!, $from: DateTime!, $to: DateTime!) { user(login: $login) {
+  contributionsCollection(from: $from, to: $to) {
+  totalCommitContributions restrictedContributionsCount totalPullRequestContributions
+  totalPullRequestReviewContributions totalIssueContributions
+  contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } } } } }"""
 
-def pick_projects(u):
-    """Choose repos for the Featured Projects section.
+REPO_Q = """query($login: String!, $after: String) { user(login: $login) { repositories(first: 100, after: $after, isFork: false,
+  ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
+  totalCount pageInfo { hasNextPage endCursor }
+  nodes { stargazerCount isPrivate languages(first: 12, orderBy: {field: SIZE, direction: DESC}) { edges { size node { name } } } } } } }"""
 
-    projects_mode "latest" (default): newest public, non-fork repos first, so a
-    repo you upload tomorrow appears automatically.
-    projects_mode "pinned": the repos you pinned on your GitHub profile.
-    """
-    cfg = json.loads((ROOT / "profile.config.json").read_text(encoding="utf-8"))
-    mode = cfg.get("projects_mode", "latest")
-    count = int(cfg.get("projects_count", 6))
-    skip = {USER.lower(), *[x.lower() for x in cfg.get("exclude_repos", [])]}
-    nodes = u["pinned"]["nodes"] if mode == "pinned" and u["pinned"]["nodes"] else u["latest"]["nodes"]
-    out = []
-    for r in nodes:
-        if not r or r.get("isPrivate") or r["name"].lower() in skip:
-            continue
-        tags = []
-        if r.get("primaryLanguage"):
-            tags.append(r["primaryLanguage"]["name"])
-        tags += [t["topic"]["name"] for t in r["repositoryTopics"]["nodes"]]
-        out.append(
-            {
-                "title": r["name"],
-                "repo": r["name"],
-                "url": r["url"],
-                "desc": " ".join((r.get("description") or "No description yet.").split()),
-                "tags": tags[:4] or ["code"],
-                "stars": r["stargazerCount"],
-            }
-        )
-        if len(out) >= count:
-            break
-    return out
+# Newest PUBLIC, non-fork repos you own — these become the Featured Projects cards automatically.
+LATEST_Q = """query($login: String!) { user(login: $login) { repositories(first: 30, privacy: PUBLIC, isFork: false,
+  ownerAffiliations: OWNER, orderBy: {field: CREATED_AT, direction: DESC}) {
+  nodes { name description url stargazerCount isArchived primaryLanguage { name }
+          repositoryTopics(first: 3) { nodes { topic { name } } } } } } }"""
 
 
 def main():
     if not TOKEN:
-        sys.exit("GH_TOKEN is not set")
-    u = gql(QUERY, {"login": USER})["user"]
-    cc = u["contributionsCollection"]
-    days = [d for w in cc["contributionCalendar"]["weeks"] for d in w["contributionDays"]]
-    current, longest = streaks(days)
+        sys.exit("Set GH_TOKEN (or METRICS_TOKEN) to a token for your account.")
+    me = gql(ME_Q)
 
-    sizes = {}
-    stars = 0
-    for repo in u["repositories"]["nodes"]:
-        stars += repo["stargazerCount"]
-        for e in repo["languages"]["edges"]:
-            sizes[e["node"]["name"]] = sizes.get(e["node"]["name"], 0) + e["size"]
-    total = sum(sizes.values()) or 1
-    top = [
-        {"name": n, "pct": round(s * 100 / total, 1)}
-        for n, s in sorted(sizes.items(), key=lambda kv: -kv[1])[:6]
+    # Contributions, one calendar year at a time (the API caps each window at a year).
+    now = dt.datetime.now(dt.timezone.utc)
+    start_year = int(me["createdAt"][:4])
+    days, totals = {}, Counter()
+    for y in range(start_year, now.year + 1):
+        frm = dt.datetime(y, 1, 1, tzinfo=dt.timezone.utc)
+        to = min(dt.datetime(y, 12, 31, 23, 59, 59, tzinfo=dt.timezone.utc), now)
+        c = gql(YEAR_Q, **{"from": frm.isoformat(), "to": to.isoformat()})["contributionsCollection"]
+        totals["commits"] += c["totalCommitContributions"] + c["restrictedContributionsCount"]
+        totals["prs"] += c["totalPullRequestContributions"]
+        totals["reviews"] += c["totalPullRequestReviewContributions"]
+        totals["issues"] += c["totalIssueContributions"]
+        totals["contributions"] += c["contributionCalendar"]["totalContributions"]
+        for w in c["contributionCalendar"]["weeks"]:
+            for d in w["contributionDays"]:
+                days[d["date"]] = d["contributionCount"]
+
+    ordered = sorted(days.items())
+    today = now.date()
+    # Streaks: today without a contribution yet doesn't break the current streak.
+    longest = run = 0
+    for _, n in ordered:
+        run = run + 1 if n else 0
+        longest = max(longest, run)
+    current = 0
+    for date, n in reversed(ordered):
+        if n:
+            current += 1
+        elif date != today.isoformat():
+            break
+
+    last_year = [(d, n) for d, n in ordered if d > (today - dt.timedelta(days=371)).isoformat()]
+    # Trim to whole weeks (Sun → Sat).
+    while last_year and dt.date.fromisoformat(last_year[0][0]).weekday() != 6:
+        last_year.pop(0)
+
+    # Repositories + languages (owned, collaborator and org repos; private ones only if the token can see them).
+    langs, stars, repos, private, after = Counter(), 0, 0, 0, None
+    while True:
+        r = gql(REPO_Q, after=after)["repositories"]
+        for n in r["nodes"]:
+            repos += 1; stars += n["stargazerCount"]; private += n["isPrivate"]
+            for e in n["languages"]["edges"]:
+                if e["node"]["name"].lower() not in IGNORE:
+                    langs[e["node"]["name"]] += e["size"]
+        if not r["pageInfo"]["hasNextPage"]:
+            break
+        after = r["pageInfo"]["endCursor"]
+    total = sum(langs.values()) or 1
+    top = [{"name": k, "pct": round(v * 100 / total, 1)} for k, v in langs.most_common(7)]
+
+    latest = [
+        {
+            "name": n["name"],
+            "description": n["description"],
+            "url": n["url"],
+            "stars": n["stargazerCount"],
+            "language": (n["primaryLanguage"] or {}).get("name"),
+            "topics": [t["topic"]["name"] for t in n["repositoryTopics"]["nodes"]],
+        }
+        for n in gql(LATEST_Q)["repositories"]["nodes"]
+        if not n["isArchived"]
     ]
 
-    projects = pick_projects(u)
-
-    stats = {
-        "commits": cc["totalCommitContributions"] + cc["restrictedContributionsCount"],
-        "prs": u["pullRequests"]["totalCount"],
-        "issues": u["issues"]["totalCount"],
+    out = {
+        "updated": now.strftime("%Y-%m-%d"),
+        "scope": SCOPE,
+        "since": start_year,
+        "year_contributions": sum(n for _, n in last_year),
+        "contributions": totals["contributions"],
+        "commits": totals["commits"],
+        "prs": totals["prs"],
+        "prs_merged": me["pullRequests"]["totalCount"],
+        "reviews": totals["reviews"],
+        "issues": totals["issues"],
+        "repos": repos,
+        "private_repos": private,
         "stars": stars,
-        "repos": u["repositories"]["totalCount"],
-        "followers": u["followers"]["totalCount"],
-        "current_streak": current,
-        "longest_streak": longest,
-        "contributions_year": cc["contributionCalendar"]["totalContributions"],
-        "top_languages": top,
-        "projects": projects,
-        "updated": dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
+        "streak_current": current,
+        "streak_longest": longest,
+        "best_day": max((n for _, n in last_year), default=0),
+        "languages": top,
+        "auto_projects": latest,
+        "calendar": [n for _, n in last_year],
+        "calendar_start": last_year[0][0] if last_year else today.isoformat(),
     }
-    (ROOT / "stats.json").write_text(json.dumps(stats, indent=2) + "\n", encoding="utf-8")
-    print("stats.json updated")
+    with open(os.path.join(ROOT, "stats.json"), "w", encoding="utf-8") as fh:
+        json.dump(out, fh, indent=1)
+    print({k: v for k, v in out.items() if k not in ("calendar", "auto_projects")}, f"| {len(latest)} public repos listed")
 
 
 if __name__ == "__main__":
