@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20",
+ "updated": "2026-11-21",
  "scope": "public",
  "since": 2023,
  "year_contributions": 228,
@@ -605,7 +605,8 @@
   0,
   0,
   0,
-  1
+  1,
+  0
  ],
  "calendar_start": "2025-11-16"
 }
